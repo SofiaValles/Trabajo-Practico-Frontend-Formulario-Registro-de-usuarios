@@ -23,7 +23,7 @@ const initialState: FormData = {
 const FormularioRegistro: React.FC = () => {
   const [form, setForm] = useState<FormData>(initialState);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-  const [showResumen, setShowResumen] = useState(false);
+  const [showResumen, setMostrarResumen] = useState(false);
   const [showExito, setShowExito] = useState(false);
 
   // Validaciones
@@ -56,7 +56,7 @@ const FormularioRegistro: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Manejo de cambios
+  // Control de cambios
     const handleChange = (e: React.ChangeEvent<any>) => {
     const { name, value, type, checked } = e.target;
     setForm({
@@ -69,17 +69,17 @@ const FormularioRegistro: React.FC = () => {
     });
     };
 
-  // Enviar formulario
+  // Cuando apretamos enviar formulario se mostrará el resumen
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validar()) {
-      setShowResumen(true);
+      setMostrarResumen(true);
     }
   };
 
   // Confirmar y enviar
   const handleConfirmar = () => {
-    setShowResumen(false);
+    setMostrarResumen(false);
     setShowExito(true);
     setForm(initialState);
   };
@@ -198,7 +198,7 @@ const FormularioRegistro: React.FC = () => {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">Resumen de datos</h5>
-                <button type="button" className="close" onClick={() => setShowResumen(false)}>
+                <button type="button" className="close" onClick={() => setMostrarResumen(false)}>
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
@@ -210,7 +210,7 @@ const FormularioRegistro: React.FC = () => {
                 <p><strong>Acepta términos:</strong> {form.terminos ? 'Sí' : 'No'}</p>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" onClick={() => setShowResumen(false)}>
+                <button type="button" className="btn btn-secondary" onClick={() => setMostrarResumen(false)}>
                   Editar
                 </button>
                 <button type="button" className="btn btn-primary" onClick={handleConfirmar}>
