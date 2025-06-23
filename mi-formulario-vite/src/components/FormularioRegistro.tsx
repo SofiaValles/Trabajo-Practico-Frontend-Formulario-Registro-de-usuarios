@@ -56,7 +56,7 @@ const FormularioRegistro: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Control de cambios
+  // Control de que no haya errores y se acepten términos
     const handleChange = (e: React.ChangeEvent<any>) => {
     const { name, value, type, checked } = e.target;
     setForm({
