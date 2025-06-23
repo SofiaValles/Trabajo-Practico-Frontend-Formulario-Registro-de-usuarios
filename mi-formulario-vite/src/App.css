@@ -3,8 +3,9 @@ h1{
     text-align: center;
 }
 
-.col-md-6{
-    background-color:rgb(213, 203, 248);
+.container mt-5{
+
+    background-color:rgb(234, 203, 248);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     margin-bottom: 20px;
@@ -12,6 +13,7 @@ h1{
     padding-bottom: 50px;
 }
 body{
+    background-image: url('https://wallpapers.com/images/hd/simple-background-nfe3kq9cr13oqs3l.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
